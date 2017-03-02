@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration>
+
+    <!-- Секция аппендеров -->
+    <Appenders>
+        <!-- Файловый аппендер: INFO -->
+        <File name="serverInfoLog" fileName="Logs/serverInfoLog.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+            </PatternLayout>
+        </File>
+
+        <!-- Файловый аппендер: Errors -->
+        <File name="serverErrorsLog" fileName="Logs/serverErrorsLog.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <!-- Секция логгеров -->
+    <Loggers>
+        <!-- Корневой логгер: INFO -->
+        <Root level="trace">
+            <AppenderRef ref="serverInfoLog" level="INFO"/>
+            <AppenderRef ref="serverErrorsLog" level="ERROR"/>
+        </Root>
+    </Loggers>
+</Configuration>
